@@ -173,7 +173,7 @@
   BOOL videoNeedTitle = filterOption.videoOption.needTitle;
 
   for (NSUInteger i = startIndex; i <= endIndex; i++) {
-    PHAsset *asset = assetArray[i];
+    PHAsset *asset = assetArray[count - 1 - i];
     BOOL needTitle = NO;
     if ([asset isVideo]) {
       needTitle = videoNeedTitle;
@@ -630,7 +630,7 @@
 
 - (PHFetchOptions *)getAssetOptions:(int)type filterOption:(PMFilterOptionGroup *)optionGroup {
   PHFetchOptions *options = [PHFetchOptions new];
-  options.sortDescriptors = [optionGroup sortCond];
+//  options.sortDescriptors = [optionGroup sortCond];
 
   NSMutableString *cond = [NSMutableString new];
   NSMutableArray *args = [NSMutableArray new];
